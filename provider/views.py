@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect, QueryDict
 from django.utils.translation import ugettext as _
 from django.views.generic.base import TemplateView
-from django.core.exceptions import ObjectDoesNotExist
+from django.core.exceptions import ObjectDoesNomtExist
 from oauth2.models import Client
 from . import constants, scope
 
@@ -488,8 +488,7 @@ class AccessToken(OAuthView, Mixin):
             pass
 
         return HttpResponse(
-            json.dumps(response_data), mimetype='application/json'
-        )
+            json.dumps(response_data))
 
     def authorization_code(self, request, data, client):
         """
